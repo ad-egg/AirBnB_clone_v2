@@ -7,8 +7,7 @@ sudo apt-get -y install nginx
 sudo mkdir -p /data/web_static/shared/
 # create folder /data/web_static/releases/test/ if it doesn't already exist
 sudo mkdir -p /data/web_static/releases/test/
-# creates a fake HTML file /data/web_static/releases/test/index.html
-sudo touch /data/web_static/releases/test/index.html
+# puts something into a fake HTML file /data/web_static/releases/test/index.html
 echo -e "<html>\n\t<head>\n\t</head>\n\t<body>\n\t\tHolberton School\n\t</body>\n</html>" | sudo tee /data/web_static/releases/test/index.html
 # creates symbolic link /data/web_static/current linked to 
 # /data/web_static/releases/test/ folder, if link already exists it is deleted
