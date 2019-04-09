@@ -4,8 +4,6 @@ this module contains do_clean function which deletes out-of-date archives
 """
 
 import os
-import re
-from datetime import datetime
 from fabric.api import *
 env.hosts = ['35.227.63.107', '35.243.218.35']
 
