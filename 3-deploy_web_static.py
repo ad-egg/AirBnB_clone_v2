@@ -20,7 +20,7 @@ def do_pack():
     try:
         local("tar -cvzf versions/web_static_{}.tgz web_static".format(
                     date_string))
-        return "/versions/web_static_{}.tgz".format(date_string)
+        return "versions/web_static_{}.tgz".format(date_string)
     except Exception:
         return None
 
