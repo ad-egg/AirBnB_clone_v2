@@ -21,6 +21,6 @@ def do_clean(number=0):
                 filenames.append(fileline)
         if len(filenames) > 2:
             for i in range(2, len(filenames) - 1):
-                local("rm {}".format(filenames[i]))
+                local("rm versions/{}".format(filenames[i]))
                 run("rm -rf /data/web_static/releases/{}".format(
                             filenames[i][:-4]))
