@@ -60,4 +60,8 @@ def deploy():
     ar_path = do_pack()
     if ar_path is None:
         return False
-    return do_deploy(ar_path)
+    deployed = do_deploy(ar_path)
+    if deployed is True:
+        return True
+    else:
+        return False
