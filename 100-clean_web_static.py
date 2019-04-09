@@ -14,7 +14,7 @@ def do_clean(number=0):
     if number > 2:
         filenames = []
         times = []
-        local("ls -1t > versionfiles")
+        local("ls -1t versions > versionfiles")
         with open('versionfiles') as f:
             local("fileslines = f.read()")
         for fileline in fileslines:
