@@ -18,7 +18,8 @@ def do_clean(number=0):
         with open('versionfiles') as f:
             local("fileslines = f.read()")
         for fileline in fileslines:
-            if "web_static_" in fileline and fileline[-4:] == ".tgz":
+            if len(fileline) == 29 and fileline[:11] == "web_static_" and \
+                              fileline[-4:] == ".tgz":
                 local(filenames.append(fileline))
         if len(filenames) > 2:
             for i in range(2, len(filenames) - 1):
