@@ -14,11 +14,11 @@ def do_clean(number=0):
         times = []
         local("ls -1t versions > versionfiles")
         with open('versionfiles') as f:
-            local("fileslines = f.read()")
+            fileslines = f.read()
         for fileline in fileslines:
             if len(fileline) == 29 and fileline[:11] == "web_static_" and \
                               fileline[-4:] == ".tgz":
-                local(filenames.append(fileline))
+                filenames.append(fileline)
         if len(filenames) > 2:
             for i in range(2, len(filenames) - 1):
                 local("rm {}".format(filenames[i]))
