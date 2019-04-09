@@ -9,7 +9,7 @@ sudo mkdir -p /data/web_static/shared/
 sudo mkdir -p /data/web_static/releases/test/
 # creates a fake HTML file /data/web_static/releases/test/index.html
 sudo touch /data/web_static/releases/test/index.html
-echo -e "<html>\n\t<head>\n\t</head>\n\t<body>\n\t\tHolberton School\n\t</body>\n</html>" > sudo tee /data/web_static/releases/test/index.html
+echo -e "<html>\n\t<head>\n\t</head>\n\t<body>\n\t\tHolberton School\n\t</body>\n</html>" | sudo tee /data/web_static/releases/test/index.html
 # creates symbolic link /data/web_static/current linked to 
 # /data/web_static/releases/test/ folder, if link already exists it is deleted
 # and recreated each time the script is run
