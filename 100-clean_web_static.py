@@ -30,7 +30,7 @@ def do_clean(number=0):
             return
     else:
         del_after_index = number
-        if number + 2 <= len(filenames):
+        if number <= len(filenames):
             return
     for i in range(del_after_index, len(filenames)):
         local("rm versions/{}".format(filenames[i])
