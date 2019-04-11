@@ -12,7 +12,7 @@ def do_clean(number=0):
     """deletes out of date archives, number is number of archives to keep"""
     # going to put list of archive names here
     filenames = []
-    local("ls -1 versions | sort > versionfiles")
+    local("ls -1 versions | sort -r > versionfiles")
     with open('versionfiles') as f:
         fileslines = f.read()
     for fileline in fileslines:
@@ -20,14 +20,10 @@ def do_clean(number=0):
                           fileline[-4:] == ".tgz":
             filenames.append(fileline)
 
-    if number == 0 or number == 1:
+    if number < 2:
         if len(filenames) <= 1:
             return
         del_after_index = 1
-    elif number == 2:
-        if len(filenames) <= 2:
-            return
-        del_after_index = 2
     else:
         if number <= len(filenames):
             return
