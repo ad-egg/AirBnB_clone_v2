@@ -9,18 +9,29 @@ env.hosts = ['35.227.63.107', '35.243.218.35']
 
 
 def do_clean(number=0):
-    if number > 2:
-        filenames = []
-        times = []
-        local("ls -1t versions > versionfiles")
-        with open('versionfiles') as f:
-            fileslines = f.read()
-        for fileline in fileslines:
-            if len(fileline) == 29 and fileline[:11] == "web_static_" and \
-                              fileline[-4:] == ".tgz":
-                filenames.append(fileline)
-        if len(filenames) > 2:
-            for i in range(2, len(filenames) - 1):
-                local("rm versions/{}".format(filenames[i]))
-                run("rm -rf /data/web_static/releases/{}".format(
-                            filenames[i][:-4]))
+    """deletes out of date archives, number is number of archives to keep"""
+    # going to put list of archive names here
+    filenames = []
+    local("ls -1 versions | sort > versionfiles")
+    with open('versionfiles') as f:
+        fileslines = f.read()
+    for fileline in fileslines:
+        if len(fileline) == 29 and fileline[:11] == "web_static_" and \
+                          fileline[-4:] == ".tgz":
+            filenames.append(fileline)
+
+    if number == 0 or number == 1:
+        del_after_index = 1
+        if len(filenames) <= 1:
+            return
+    elif number == 2:
+        del_after_index = 2
+        if len(filenames) <= 2:
+            return
+    else:
+        del_after_index = number
+        if number + 2 <= len(filenames):
+            return
+    for i in range(del_after_index, len(filenames)):
+        local("rm versions/{}".format(filenames[i])
+        run("rm -rf /data/web_static/releases/{}".format(filenames[i][:-4])))
