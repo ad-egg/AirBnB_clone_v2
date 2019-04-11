@@ -33,5 +33,5 @@ def do_clean(number=0):
         if number <= len(filenames):
             return
     for i in range(del_after_index, len(filenames)):
-        local("rm versions/{}".format(filenames[i])
-        run("rm -rf /data/web_static/releases/{}".format(filenames[i][:-4])))
+        local("rm versions/{}".format(filenames[i]))
+        run("rm -rf /data/web_static/releases/{}".format(filenames[i][:-4]))
