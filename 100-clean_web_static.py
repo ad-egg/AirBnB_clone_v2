@@ -21,17 +21,17 @@ def do_clean(number=0):
             filenames.append(fileline)
 
     if number == 0 or number == 1:
-        del_after_index = 1
         if len(filenames) <= 1:
             return
+        del_after_index = 1
     elif number == 2:
-        del_after_index = 2
         if len(filenames) <= 2:
             return
+        del_after_index = 2
     else:
-        del_after_index = number
         if number <= len(filenames):
             return
+        del_after_index =  number
     for i in range(del_after_index, len(filenames)):
         local("rm versions/{}".format(filenames[i]))
         run("rm -rf /data/web_static/releases/{}".format(filenames[i][:-4]))
