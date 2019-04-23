@@ -19,9 +19,9 @@ def c_text(ctext):
     """displays "C" followed value of text variable"""
     return "C %s" % ctext.replace("_", " ")
 
-@app.route('/python/', defaults={'ptext': "is_cool"})
+@app.route('/python/')
 @app.route('/python/<text>', strict_slashes=False)
-def py_text(ptext):
+def py_text(ptext="is_cool"):
     """displays "Python" followed by value of text variable"""
     return "Python %s" % ptext.replace("_", " ")
 
