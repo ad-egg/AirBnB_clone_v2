@@ -15,15 +15,15 @@ def hbnb():
     return "HBNB"
 
 @app.route('/c/<text>', strict_slashes=False)
-def c_text(ctext):
+def c_text(text):
     """displays "C" followed value of text variable"""
-    return "C %s" % ctext.replace("_", " ")
+    return "C %s" % text.replace("_", " ")
 
 @app.route('/python/')
 @app.route('/python/<text>', strict_slashes=False)
-def py_text(ptext="is_cool"):
+def py_text(text="is_cool"):
     """displays "Python" followed by value of text variable"""
-    return "Python %s" % ptext.replace("_", " ")
+    return "Python %s" % text.replace("_", " ")
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
