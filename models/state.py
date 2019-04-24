@@ -19,6 +19,7 @@ class State(BaseModel, Base):
                 "City", backref='state', cascade="all, delete, delete-orphan")
     else:
         name = ""
+
         @property
         def cities(self):
             """ gets a list of city objects with that state id """
