@@ -42,16 +42,17 @@ class DBStorage:
         dict_all = {}
         if cls is None:
             for table in self.__all_classes:
-                type_obj = self.__session.query(table)
+                type_obj = self.__session.query(table).all()
                 for one_obj in type_obj:
                     cls_name = one_obj.__class__.__name__
                     k = cls_name + '.' + one_obj.id
                     dict_all[k] = one_obj
         else:
-            all_rows = self.__session.query(cls).all()
-            for obj in all_rows:
-                k = obj.__class__.__name__ + '.' + obj.id
-                dict_all[k] = obj
+            if cls in self.__all_classes:
+                all_rows = self.__session.query(cls).all()
+                for obj in all_rows:
+                    k = obj.__class__.__name__ + '.' + obj.id
+                    dict_all[k] = obj
         return dict_all
 
     def reload(self):
