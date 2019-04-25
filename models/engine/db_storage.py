@@ -50,9 +50,11 @@ class DBStorage:
         else:
             if type(cls) is str:
                 all_rows = self.__session.query(eval(cls)).all()
-                for obj in all_rows:
-                    k = obj.__class__.__name__ + '.' + obj.id
-                    dict_all[k] = obj
+            else:
+                all_rows = self.__session.query(cls).all()
+            for obj in all_rows:
+                k = obj.__class__.__name__ + '.' + obj.id
+                dict_all[k] = obj
         return dict_all
 
     def reload(self):
