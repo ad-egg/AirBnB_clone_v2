@@ -48,8 +48,8 @@ class DBStorage:
                     k = cls_name + '.' + one_obj.id
                     dict_all[k] = one_obj
         else:
-            if cls in self.__all_classes:
-                all_rows = self.__session.query(cls).all()
+            if type(cls) is str:
+                all_rows = self.__session.query(eval(cls)).all()
                 for obj in all_rows:
                     k = obj.__class__.__name__ + '.' + obj.id
                     dict_all[k] = obj
