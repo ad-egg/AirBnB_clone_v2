@@ -52,12 +52,12 @@ def odd_even_num(n):
 @app.route('/states_list', strict_slashes=False)
 def states_l():
     """displays a HTML page"""
-    l_states = storage.all(State).values()
-    return render_template('7-states_list', l_states)
+    l_states = storage.all("State").values()
+    return render_template('7-states_list.html', l_states=l_states)
 
 
 @app.teardown_appcontext
-def rm_curr_session():
+def rm_curr_session(self):
     """removes the current SQLAlchemy Session"""
     storage.close()
 
