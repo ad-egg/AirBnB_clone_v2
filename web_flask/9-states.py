@@ -77,7 +77,7 @@ def states_id(id):
     for state in l_states:
         if state.id == id:
             return render_template('9-states.html', state=state)
-    return render_template('')
+    return render_template('9-states.html')
 
 
 @app.teardown_appcontext
