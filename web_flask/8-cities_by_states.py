@@ -62,6 +62,7 @@ def cities_l():
     l_states = storage.all("State").values()
     return render_template('8-cities_by_states.html', l_states=l_states)
 
+
 @app.teardown_appcontext
 def rm_curr_session(self):
     """removes the current SQLAlchemy Session"""
