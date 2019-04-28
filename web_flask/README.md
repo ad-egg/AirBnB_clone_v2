@@ -17,4 +17,4 @@ This Python script does the same thing as `5-number_template.py` with additional
 ### 7-states_list.py
 ### 8-cities_by_states.py
 ### 9-states.py
-###10-hbnb_filters.py
+### 10-hbnb_filters.py
